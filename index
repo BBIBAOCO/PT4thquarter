@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 2px solid #BE471E;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #F39D7E;}
+#customers tr:nth-child(odd){background-color: #F39D7E;}
+#customers tr:hover {background-color: #F1B5B5;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #E37048;
+  color: #FFF;
+}
+#customers tr {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #BE471E;
+  color: #FFF;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #883737;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #9A3A18;
+  color: #FFF;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #A36363;
+}
+
+p1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  font-style: italic;
+}
+body {background-color: #F8916D;}
+label {font-color: #BE471E;
+}
+ul{
+        display:inline-block;
+        border:3px solid #BE471E;
+        padding: 30px;
+        background-color: #FCFAF7;
+        margin: 5px;
+}
+ol{
+        display:inline-block;
+        border:3px solid #BE471E;
+        padding: 30px;
+        background-color: #FCFAF7;
+        margin: 5px;
+}
+li {
+color:#BE471E;
+font-size: 13;
+margin: 5px;
+}
+h3 {
+color:#BE471E;
+font-size: 20;
+}
+p3 {
+color:#BE471E;
+font-size: 15px;
+}
+p2 {
+color:#BE471E;
+font-size: 25px;
+}
+.myDiv {
+  border: 5px solid #9F331E;
+  background-color: #BE471E;    
+  text-align: center;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+  font-style: bold;
+}
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+  font-style: italic;
+}
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #313942;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+#Home {background-color: #F8916D;}
+#News {background-color: #F8916D;}
+#Contact {background-color: #F8916D;}
+#About {background-color: #F8916D;}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, '#F8916D')"id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('News', this, '#F8916D')">Recipe</button>
+<button class="tablink" onclick="openPage('Contact', this, '#F8916D')">Pricing</button>
+<button class="tablink" onclick="openPage('About', this, '#F8916D')">Order</button>
+
+<div id="Home" class="tabcontent">
+  <center><h1>Preserved Tapa Meat</h1><hr style="height:5px;border-width:0;color:gray;background-color:#9A3A18">
+<p> Tapa is a Filipino cuisine made out of thinly sliced beef or pork. Tapa is commonly marinated in a sweet, salty, and tangy marinade made with calamansi lemonade and soy sauce, flavored with sugar and minced garlic which will give the Tapa an appetizing flavor. </p></center>
+<hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/438246536_3384538141839293_114105389304287414_n.jpg?stp=dst-jpg_p403x403&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JDVK-wH8KXQQ7kNvgGyF20s&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QH9-SxHO83l0MdWKEbp1dQ114qDkOthqzGYTRAz58rjMA&oe=665C481A" style="width:100%">
+  <div class="text">‎ </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/440184891_802434024771551_485693783622530619_n.jpg?stp=dst-jpg_p403x403&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ejZckX6LvEQQ7kNvgEHamCS&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFOcvwgFHMIoESR1OBaXx5kJjj_Ci4uSBmOQ-GDEPfK1w&oe=665B97DA" style="width:100%">
+  <div class="text">‎ </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/440300904_384787947881911_28359698418021573_n.jpg?stp=dst-jpg_p403x403&_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=xSqr_0vYrsUQ7kNvgGoVZim&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QEzSMwxd_WuQHjlNSnx09xNuWumPSwCE_qm4yy3Ds8lyg&oe=665B97AD" style="width:100%">
+  <div class="text">‎ </div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+<br>
+
+<hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+<center><h2> Contributors </h2> <h4> Beatrice Bibaoco - Leader/Layout <br> Lharra Bantulo - Information <br> Joryl De Tablan - Layout <br> Savannah Locsin - Information <br> Leon Medrano - Information </h4> <br>
+
+</div>
+<div id="News" class="tabcontent"><center><br>
+  <h1>Tapa Making Guide!</h1>
+  <hr style="height:5px;border-width:0;color:gray;background-color:#9A3A18">
+ <h2> How to Marinate and Cook Tapa</h2>
+   <ul>
+   <h3>Ingredients needed</h3>
+  <li>1kg beef</li>
+  <li>½ cup + 2 tbsps. soy sauce</li>
+  <li>½ tsp. salt</li>
+  <li>1 tsp. black pepper</li>
+  <li>½ - 1 tbsp. sugar </li>
+  <li>2 pcs. whole heads of garlic with skin </li>
+  <li>1 tbsp. calamansi juice</li>
+  <li>½ tsp. baking soda</li>
+  <li>½ cup cola or apple juice</li><br>
+  <hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+  <h3> Materials Needed</h3>
+   <li> A Non-stick Pan </li>
+    <li>Spatula </li>
+     <li>Measuring cups and spoons</li>
+      <li>Bowl </li>
+      <li>Tongs</li>
+      <li>Utensils</li>
+      <li>Chopping board</li><br></ul>
+      <hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+      <ol><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18"> <h3>Marination process
+       </h3>
+    <li>Prepare the meat </li>
+  <li>Mix the soy sauce, black pepper, sugar, garlic, calamansi juice, baking soda, juice/cola in a blender to make the marinade.</li>
+   <li>Then mix the meat and marinade together</li>
+    <li>Seal it and keep it in the refrigerator for a week to marinate</li><br><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18"> <h3>Watch this video to get a better idea!</h3> <iframe width="380" height="280" src="https://www.youtube.com/embed/qDO1P-sIMPM" title="TAPA MARINATING GROUP 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+<h3> Was this Recipe Helpful?</h3> <p3> Press "OK" for Yes! Press "Cancel" for No!</p3><br><br>
+<button onclick="myFunction()">Press Me!</button>
+
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed Yes!";
+  } else {
+    txt = "You pressed No!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script></ol> <ol>
+ <hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">  <h3> Cooking Process</h3>
+  <li>After leaving it for one week, defrost your meat for 30 minutes and then open your meat from the bag, or after marinating it.</li>
+  <li>Heat up the pan with 8 tbsp of water, and then after the water is dried up in the pan, proceed to add a little bit of oil and cook it until it is brown.
+</li>
+   <li>After cooking, Cut the beef tapa into bite size pieces, after that you may plate it with garlic fried rice (or just normal white rice) topped with sliced green onions and with egg and cucumber on the side (optional).</li><br> <hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18"><h3>Watch this video to get a better idea!</h3><iframe width="380" height="280" src="https://www.youtube.com/embed/I00vAbnpGQg" title="TAPA COOKING GROUP 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+<h3> Was this Recipe Helpful?</h3> <p3> Press "OK" for Yes! Press "Cancel" for No!</p3><br><br>
+<button onclick="myFunction()">Press Me!</button>
+
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed Yes!";
+  } else {
+    txt = "You pressed No!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script></ol>
+</div>
+
+
+<div id="Contact" class="tabcontent">
+  <center><h1>How we calculate our prices!</h1>
+  <h4>To learn more about how we determine the prices for our products, scroll down.</h4><hr style="height:5px;border-width:0;color:gray;background-color:#9A3A18"><br>   <ul><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+  <p2><b>1KG (1 SERVING): P778.32</b></p2><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+   <h3> Ingredients: </h3>
+    <li>1kg beef: Approximately ₱490.00
+<li>½ cup + 2 tbsps. soy sauce: ₱35.00</li>
+<li>½ tsp. salt: ₱0.05</li>
+<li>1 tsp. black pepper: ₱0.70</li>
+<li>½ tbsp. sugar: ₱0.60</li>
+<li>2 whole heads of garlic: ₱20.00</li>
+<li>1 tbsp. calamansi juice: ₱2.00</li>
+<li>½ tsp. baking soda: ₱0.25
+</li><br><p3> TOTAL: ₱548.6 <br> LABOR: ₱100 <br> Mark-up Percentage: 20% <br> Yield: 1</p3> <br><br> <p3> <b>A. Total cost of Ingredients: ₱1,008.60 </b> </p3><br>
+
+<p3> Insert Formula: Adding all the cost of ingredients together </p3><br><br>
+
+
+<p3> <b>B. Cost per portion: Php 548.6</b> </p3><br>
+
+
+<p3> Insert Formula: 548.6 / 1 </p3><br>
+
+<p3>Divide the total cost of ingredients by the yield portions (1) </p3><br><br>
+
+
+<p3> <b>C.Total cost per portion: Php 648.6</b> </p3><br>
+
+
+ <p3>   Insert Formula: 548.6 + 100 </p3><br>
+
+
+<p3>Cost per portion plus extra expenses </p3><br><br>
+
+
+<p3> <b>D. Markup Percentage:--- 2% = Php 129.72</b> </p3><br>
+
+
+     <p3>  Insert Formula: 648.6 * 0.2 = 129.72</p3><br>
+
+
+<p3>Multiply the total cost per portion to 20% (0.2 in decimal form)</p3><br><br>
+
+
+<p3> <b>E. Selling Price = Php 778.32</b> </p3><br>
+
+<p3>Insert Formula: 648.6 + 129.72 = 778.32 </p3><br>
+
+<p3>Add the markup to the total cost per portion. </p3> <br><br><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+
+
+
+  <p2><b>500G (2 SERVING): P449.16</b></p2><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+   <h3> Ingredients: </h3>
+    <li>1kg beef: Approximately ₱490.00
+<li>½ cup + 2 tbsps. soy sauce: ₱35.00</li>
+<li>½ tsp. salt: ₱0.05</li>
+<li>1 tsp. black pepper: ₱0.70</li>
+<li>½ tbsp. sugar: ₱0.60</li>
+<li>2 whole heads of garlic: ₱20.00</li>
+<li>1 tbsp. calamansi juice: ₱2.00</li>
+<li>½ tsp. baking soda: ₱0.25
+</li><br><p3> TOTAL: ₱548.6 <br> LABOR: ₱100 <br> Mark-up Percentage: 20% <br> Yield: 2</p3> <br><br> <p3> <b>A. Total cost of Ingredients: ₱548.6 </b> </p3><br>
+
+<p3> Insert Formula: Adding all the cost of ingredients together </p3><br><br>
+
+
+<p3> <b>B. Cost per portion: Php 274.3</b> </p3><br>
+
+
+<p3> Insert Formula: 548.6 / 2 </p3><br>
+
+<p3>Divide the total cost of ingredients by the yield portions (2) </p3><br><br>
+
+
+<p3> <b>C.Total cost per portion: Php 374.3</b> </p3><br>
+
+
+ <p3>   Insert Formula: 274.3 + 100 </p3><br>
+
+
+<p3>Cost per portion plus extra expenses </p3><br><br>
+
+
+<p3> <b>D. Markup Percentage:--- 2% = Php 74.86</b> </p3><br>
+
+
+     <p3>  Insert Formula:  374.3 * 0.2 = 74.86</p3><br>
+
+
+<p3>Multiply the total cost per portion to 20% (0.2 in decimal form)</p3><br><br>
+
+
+<p3> <b>E. Selling Price = Php 449.16</b> </p3><br>
+
+<p3>Insert Formula:  374.3 + 74.86 = 449.16 </p3><br>
+
+<p3>Add the markup to the total cost per portion. </p3> <br><br><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+
+
+
+  <p2><b>250G (4 SERVING): P284.58</b></p2><hr style="height:3px;border-width:0;color:gray;background-color:#9A3A18">
+   <h3> Ingredients: </h3>
+    <li>1kg beef: Approximately ₱490.00
+<li>½ cup + 2 tbsps. soy sauce: ₱35.00</li>
+<li>½ tsp. salt: ₱0.05</li>
+<li>1 tsp. black pepper: ₱0.70</li>
+<li>½ tbsp. sugar: ₱0.60</li>
+<li>2 whole heads of garlic: ₱20.00</li>
+<li>1 tbsp. calamansi juice: ₱2.00</li>
+<li>½ tsp. baking soda: ₱0.25
+</li><br><p3> TOTAL: ₱548.6 <br> LABOR: ₱100 <br> Mark-up Percentage: 20% <br> Yield: 4</p3> <br><br> <p3> <b>A. Total cost of Ingredients: ₱548.6 </b> </p3><br>
+
+<p3> Insert Formula: Adding all the cost of ingredients together </p3><br><br>
+
+
+<p3> <b>B. Cost per portion: Php 137.15</b> </p3><br>
+
+
+<p3> Insert Formula: 548.6 / 4 </p3><br>
+
+<p3>Divide the total cost of ingredients by the yield portions (4) </p3><br><br>
+
+
+<p3> <b>C.Total cost per portion: Php 237.15</b> </p3><br>
+
+
+ <p3>   Insert Formula: 137.15 + 100 </p3><br>
+
+
+<p3>Cost per portion plus extra expenses </p3><br><br>
+
+
+<p3> <b>D. Markup Percentage:--- 2% = Php 47.43</b> </p3><br>
+
+
+     <p3>  Insert Formula: 237.15 * 0.2 = 47.43</p3><br>
+
+
+<p3>Multiply the total cost per portion to 20% (0.2 in decimal form)</p3><br><br>
+
+
+<p3> <b>E. Selling Price = Php 284.58</b> </p3><br>
+
+<p3>Insert Formula: 237.15 + 47.43 = 284.58 </p3><br>
+
+<p3>Add the markup to the total cost per portion. </p3> 
+</div>
+
+<div id="About" class="tabcontent">
+  <center><h1>How to Order from us?</h1> <hr style="height:5px;border-width:0;color:gray;background-color:#9A3A18"><h2> Our Menu!</h2>
+  <center><table id="customers">
+  <tr>
+    <th>Amount</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>1KG TAPA MEAT</td>
+    <td>P778.32</td>
+</tr>
+  <tr>
+    <td>500G TAPA MEAT</td>
+    <td>P449.16</td>
+</tr>
+  <tr>
+  <tr>
+    <td>250G TAPA MEAT</td>
+    <td>P284.58</td>
+</tr>
+</table></center>
+<hr style="height:5px;border-width:0;color:gray;background-color:#9A3A18"><h4>Fill up this form to put in your order!</h4> </center>  <form action="/action_page.php">
+    <p1> Please insert your full name: </p1>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+    <p1> Choose your desired amount: </p1>
+    <select id="country" name="country">
+      <option value="250g">250g Tapa Meat (P284.58)</option>
+      <option value="500g">500g Tapa Meat (P449.16)</option>
+      <option value="1kg">1kg Tapa Meat (P778.32) </option>
+    </select>
+    <p1> Method to pay: </p1>
+    <select id="country" name="country">
+      <option value="Gcash">Gcash</option>
+      <option value="Credit Card">Credit Card</option>
+      <option value="Cash">Cash</option>
+      <option value="Paypal">Paypal</option>
+    </select>
+          <p1> How to pick up order: </p1>
+    <select id="country" name="country">
+      <option value="250g">Delivery</option>
+      <option value="500g">Pick-up</option>
+    </select>
+    <input type="submit" value="Submit">
+</form> <br>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html>
